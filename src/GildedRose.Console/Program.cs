@@ -2,114 +2,117 @@
 
 namespace GildedRose.Console
 {
-    class Program
+    public class Program
     {
         IList<Item> Items;
+
+        public Program(params Item[] items)
+        {
+            Items = items;
+        }
+
         static void Main(string[] args)
         {
             System.Console.WriteLine("OMGHAI!");
 
-            var app = new Program()
-                          {
-                              Items = new List<Item>
-                                          {
-                                              new Item {Name = "+5 Dexterity Vest", SellIn = 10, Quality = 20},
-                                              new Item {Name = "Aged Brie", SellIn = 2, Quality = 0},
-                                              new Item {Name = "Elixir of the Mongoose", SellIn = 5, Quality = 7},
-                                              new Item {Name = "Sulfuras, Hand of Ragnaros", SellIn = 0, Quality = 80},
-                                              new Item
-                                                  {
-                                                      Name = "Backstage passes to a TAFKAL80ETC concert",
-                                                      SellIn = 15,
-                                                      Quality = 20
-                                                  },
-                                              new Item {Name = "Conjured Mana Cake", SellIn = 3, Quality = 6}
-                                          }
-
-                          };
+            var app = new Program
+                      {
+                          Items = new List<Item>
+                                  {
+                                      new Item { Name = "+5 Dexterity Vest", SellIn = 10, Quality = 20 },
+                                      new Item { Name = "Aged Brie", SellIn = 2, Quality = 0 },
+                                      new Item { Name = "Elixir of the Mongoose", SellIn = 5, Quality = 7 },
+                                      new Item { Name = "Sulfuras, Hand of Ragnaros", SellIn = 0, Quality = 80 },
+                                      new Item
+                                      {
+                                          Name = "Backstage passes to a TAFKAL80ETC concert",
+                                          SellIn = 15,
+                                          Quality = 20
+                                      },
+                                      new Item { Name = "Conjured Mana Cake", SellIn = 3, Quality = 6 }
+                                  }
+                      };
+            
 
             app.UpdateQuality();
 
             System.Console.ReadKey();
-
         }
 
         public void UpdateQuality()
         {
-            for (var i = 0; i < Items.Count; i++)
+            foreach (var item in Items)
             {
-                if (Items[i].Name != "Aged Brie" && Items[i].Name != "Backstage passes to a TAFKAL80ETC concert")
+                UpdateSellIn(item);
+
+                if (item.Name == "Aged Brie")
                 {
-                    if (Items[i].Quality > 0)
-                    {
-                        if (Items[i].Name != "Sulfuras, Hand of Ragnaros")
-                        {
-                            Items[i].Quality = Items[i].Quality - 1;
-                        }
-                    }
+                    UpdateQualityOfAgedBrie(item);
                 }
-                else
+                else if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
                 {
-                    if (Items[i].Quality < 50)
-                    {
-                        Items[i].Quality = Items[i].Quality + 1;
-
-                        if (Items[i].Name == "Backstage passes to a TAFKAL80ETC concert")
-                        {
-                            if (Items[i].SellIn < 11)
-                            {
-                                if (Items[i].Quality < 50)
-                                {
-                                    Items[i].Quality = Items[i].Quality + 1;
-                                }
-                            }
-
-                            if (Items[i].SellIn < 6)
-                            {
-                                if (Items[i].Quality < 50)
-                                {
-                                    Items[i].Quality = Items[i].Quality + 1;
-                                }
-                            }
-                        }
-                    }
+                    UpdateQualityOfBackstagePasses(item);
                 }
-
-                if (Items[i].Name != "Sulfuras, Hand of Ragnaros")
+                else if (item.Name != "Sulfuras, Hand of Ragnaros")
                 {
-                    Items[i].SellIn = Items[i].SellIn - 1;
+                    UpdateQualityOfNormalItem(item);
                 }
+            }
+        }
 
-                if (Items[i].SellIn < 0)
+        void UpdateQualityOfAgedBrie(Item item)
+        {
+            AppreciateQuality(item);
+
+            if(item.SellIn < 0)
+                AppreciateQuality(item);
+        }
+
+        static void AppreciateQuality(Item item)
+        {
+            if (item.Quality < 50)
+                item.Quality = item.Quality + 1;
+        }
+
+        static void UpdateSellIn(Item item)
+        {
+            if (item.Name != "Sulfuras, Hand of Ragnaros")
+                item.SellIn = item.SellIn - 1;
+        }
+
+        static void UpdateQualityOfBackstagePasses(Item item)
+        {
+            if (item.SellIn < 0)
+                item.Quality = 0;
+            else
+            {
+                if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
                 {
-                    if (Items[i].Name != "Aged Brie")
+                    if (item.Quality < 50)
                     {
-                        if (Items[i].Name != "Backstage passes to a TAFKAL80ETC concert")
-                        {
-                            if (Items[i].Quality > 0)
-                            {
-                                if (Items[i].Name != "Sulfuras, Hand of Ragnaros")
-                                {
-                                    Items[i].Quality = Items[i].Quality - 1;
-                                }
-                            }
-                        }
-                        else
-                        {
-                            Items[i].Quality = Items[i].Quality - Items[i].Quality;
-                        }
-                    }
-                    else
-                    {
-                        if (Items[i].Quality < 50)
-                        {
-                            Items[i].Quality = Items[i].Quality + 1;
-                        }
+                        if (item.SellIn < 11)
+                            AppreciateQuality(item);
+
+                        if (item.SellIn < 6)
+                            AppreciateQuality(item);
                     }
                 }
             }
         }
 
+        static void UpdateQualityOfNormalItem(Item item)
+        {
+            DepreciateQuality(item);
+
+            if(item.SellIn < 0)
+                DepreciateQuality(item);
+        }
+
+        static void DepreciateQuality(Item item)
+        {
+            if (item.Quality > 0)
+                item.Quality = item.Quality - 1;
+        }
     }
 
     public class Item
