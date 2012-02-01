@@ -1,7 +1,6 @@
 using System;
-using GildedRose.Console;
 
-namespace GildedRose.Tests
+namespace GildedRose.Console
 {
     public class ItemNotFoundInRegistryException : Exception
     {

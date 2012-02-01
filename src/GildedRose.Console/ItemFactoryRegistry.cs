@@ -1,8 +1,7 @@
 using System;
 using System.Linq;
-using GildedRose.Console;
 
-namespace GildedRose.Tests
+namespace GildedRose.Console
 {
     public class ItemFactoryRegistry : IFindItemFactories
     {

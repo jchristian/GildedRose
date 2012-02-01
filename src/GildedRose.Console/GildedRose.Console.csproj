@@ -39,6 +39,13 @@
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IContainTheItemFactories.cs" />
+    <Compile Include="IFindItemFactories.cs" />
+    <Compile Include="IMatchAnItem.cs" />
+    <Compile Include="IParseItems.cs" />
+    <Compile Include="ItemFactoryRegistry.cs" />
+    <Compile Include="ItemNotFoundInRegistryException.cs" />
+    <Compile Include="ItemParser.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

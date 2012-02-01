@@ -1,6 +1,4 @@
-using GildedRose.Console;
-
-namespace GildedRose.Tests
+namespace GildedRose.Console
 {
     public interface IParseItems
     {

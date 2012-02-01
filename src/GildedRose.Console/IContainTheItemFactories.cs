@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace GildedRose.Tests
+namespace GildedRose.Console
 {
     public interface IContainTheItemFactories : IEnumerable<IMatchAnItem> {}
 }
