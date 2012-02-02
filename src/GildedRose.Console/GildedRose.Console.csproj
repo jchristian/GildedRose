@@ -39,6 +39,7 @@
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GenericItemMatch.cs" />
     <Compile Include="IContainTheItemFactories.cs" />
     <Compile Include="IFindItemFactories.cs" />
     <Compile Include="IMatchAnItem.cs" />
@@ -46,6 +47,13 @@
     <Compile Include="ItemFactoryRegistry.cs" />
     <Compile Include="ItemNotFoundInRegistryException.cs" />
     <Compile Include="ItemParser.cs" />
+    <Compile Include="Items\AgedBrieItem.cs" />
+    <Compile Include="Items\BackstagePassesItem.cs" />
+    <Compile Include="Items\ConjuredItem.cs" />
+    <Compile Include="Items\ItemFactories.cs" />
+    <Compile Include="Items\NormalItem.cs" />
+    <Compile Include="Items\SulfurasItem.cs" />
+    <Compile Include="IUpdateMyself.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

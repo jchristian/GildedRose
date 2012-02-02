@@ -9,7 +9,7 @@ namespace GildedRose.Console
             _itemFactoryRegistry = itemFactoryRegistry;
         }
 
-        public Item Parse(Item item)
+        public IUpdateMyself Parse(Item item)
         {
             return _itemFactoryRegistry.Find(item)(item);
         }

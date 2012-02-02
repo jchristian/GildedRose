@@ -4,6 +4,6 @@ namespace GildedRose.Console
 {
     public interface IFindItemFactories
     {
-        Func<Item, Item> Find(Item item);
+        Func<Item, IUpdateMyself> Find(Item item);
     }
 }

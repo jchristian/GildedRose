@@ -1,4 +1,5 @@
 ﻿using GildedRose.Console;
+using GildedRose.Console.Items;
 using NUnit.Framework;
 
 namespace GildedRose.Tests
@@ -128,6 +129,28 @@ namespace GildedRose.Tests
         }
 
         [Test]
+        public void when_updating_a_conjured_item_should_degrade_the_quality_twice_as_fast()
+        {
+            var item = new Item { Name = "Conjured Cloak", Quality = 30, SellIn = 5 };
+
+            var program = CreateProgram(item);
+            program.UpdateQuality();
+
+            Assert.That(item.Quality, Is.EqualTo(28));
+        }
+
+        [Test]
+        public void when_updating_a_conjured_item_and_its_sellby_date_is_past_should_degrade_the_quality_twice_as_fast()
+        {
+            var item = new Item { Name = "Conjured Cloak", Quality = 30, SellIn = 0 };
+
+            var program = CreateProgram(item);
+            program.UpdateQuality();
+
+            Assert.That(item.Quality, Is.EqualTo(26));
+        }
+
+        [Test]
         public void when_updating_multiple_items_should_update_all_the_items()
         {
             var item1 = new Item { Name = "Item", Quality = 10, SellIn = 5 };
@@ -145,7 +168,7 @@ namespace GildedRose.Tests
 
         Program CreateProgram(params Item[] items)
         {
-            return new Program(items);
+            return new Program(new ItemParser(new ItemFactoryRegistry(new ItemFactories())), items);
         }
     }
 }
