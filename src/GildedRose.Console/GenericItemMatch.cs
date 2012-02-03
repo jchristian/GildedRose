@@ -4,9 +4,9 @@ using GildedRose.Console;
 public class GenericItemMatch : IMatchAnItem
 {
     Func<Item, bool> _match;
-    Func<Item, IUpdateMyself> _factory;
+    Func<Item, IUpdateAnItem> _factory;
 
-    public GenericItemMatch(Func<Item, bool> match, Func<Item, IUpdateMyself> factory)
+    public GenericItemMatch(Func<Item, bool> match, Func<Item, IUpdateAnItem> factory)
     {
         _match = match;
         _factory = factory;
@@ -17,7 +17,7 @@ public class GenericItemMatch : IMatchAnItem
         return _match(item);
     }
 
-    public IUpdateMyself Factory(Item item)
+    public IUpdateAnItem Factory(Item item)
     {
         return _factory(item);
     }

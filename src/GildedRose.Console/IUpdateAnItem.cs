@@ -1,6 +1,6 @@
 namespace GildedRose.Console
 {
-    public interface IUpdateMyself
+    public interface IUpdateAnItem
     {
         void Update();
     }

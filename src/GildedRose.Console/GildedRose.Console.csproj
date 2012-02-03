@@ -39,6 +39,27 @@
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnotherSetOfItems\Appreciate.cs" />
+    <Compile Include="AnotherSetOfItems\Combine.cs" />
+    <Compile Include="AnotherSetOfItems\ConditionallyUse.cs" />
+    <Compile Include="AnotherSetOfItems\DecrementSellIn.cs" />
+    <Compile Include="AnotherSetOfItems\Default.cs" />
+    <Compile Include="AnotherSetOfItems\Depreciate.cs" />
+    <Compile Include="AnotherSetOfItems\DoubleTheQualityChange.cs" />
+    <Compile Include="AnotherSetOfItems\When.cs" />
+    <Compile Include="AnotherSetOfItems\EqualTo.cs" />
+    <Compile Include="AnotherSetOfItems\GenericRestriction.cs" />
+    <Compile Include="AnotherSetOfItems\GreaterThan.cs" />
+    <Compile Include="AnotherSetOfItems\IConditionallyApply.cs" />
+    <Compile Include="AnotherSetOfItems\IContainAnItem.cs" />
+    <Compile Include="AnotherSetOfItems\IRestrictAnItemProperty.cs" />
+    <Compile Include="AnotherSetOfItems\IRestrictTheNextCommand.cs" />
+    <Compile Include="AnotherSetOfItems\ItemAdapter.cs" />
+    <Compile Include="AnotherSetOfItems\ItemBuilderExtensions.cs" />
+    <Compile Include="AnotherSetOfItems\Items.cs" />
+    <Compile Include="AnotherSetOfItems\LessThan.cs" />
+    <Compile Include="AnotherSetOfItems\ReflectionExtensions.cs" />
+    <Compile Include="AnotherSetOfItems\Restrict.cs" />
     <Compile Include="GenericItemMatch.cs" />
     <Compile Include="IContainTheItemFactories.cs" />
     <Compile Include="IFindItemFactories.cs" />
@@ -53,7 +74,7 @@
     <Compile Include="Items\ItemFactories.cs" />
     <Compile Include="Items\NormalItem.cs" />
     <Compile Include="Items\SulfurasItem.cs" />
-    <Compile Include="IUpdateMyself.cs" />
+    <Compile Include="IUpdateAnItem.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

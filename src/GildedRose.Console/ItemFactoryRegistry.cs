@@ -12,7 +12,7 @@ namespace GildedRose.Console
             _itemFactoryMatches = itemFactoryMatches;
         }
 
-        public Func<Item, IUpdateMyself> Find(Item item)
+        public Func<Item, IUpdateAnItem> Find(Item item)
         {
             var matchedFactory = _itemFactoryMatches.FirstOrDefault(x => x.CanCreateFrom(item));
 

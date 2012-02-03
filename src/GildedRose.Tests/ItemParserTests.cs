@@ -17,7 +17,7 @@ namespace GildedRose.Tests
             var item = new Item { Name = "Normal Item", Quality = 10, SellIn = 5 };
 
             var testItem = new TestItem();
-            itemFactoryRegistry.Find(item).Returns((Func<Item, IUpdateMyself>)(i => testItem));
+            itemFactoryRegistry.Find(item).Returns((Func<Item, IUpdateAnItem>)(i => testItem));
 
             //Act
             var parsedItem = itemParser.Parse(item);
@@ -26,7 +26,7 @@ namespace GildedRose.Tests
             Assert.That(parsedItem, Is.EqualTo(testItem));
         }
 
-        class TestItem : IUpdateMyself
+        class TestItem : IUpdateAnItem
         {
             public void Update()
             {

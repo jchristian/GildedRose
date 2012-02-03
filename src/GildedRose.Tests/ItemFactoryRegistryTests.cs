@@ -27,7 +27,7 @@ namespace GildedRose.Tests
             var theReturnedFactory = itemRegistryFactory.Find(testItem);
 
             //Assert
-            Assert.That(theReturnedFactory, Is.EqualTo((Func<Item, IUpdateMyself>)match.Factory));
+            Assert.That(theReturnedFactory, Is.EqualTo((Func<Item, IUpdateAnItem>)match.Factory));
         }
 
         [Test]

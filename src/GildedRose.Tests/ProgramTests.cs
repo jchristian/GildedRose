@@ -107,6 +107,50 @@ namespace GildedRose.Tests
         }
 
         [Test]
+        public void when_updating_concert_tickets_more_than_10_days_before_its_sellby_should_appreciate_one_quality()
+        {
+            var item = new Item { Name = "Backstage passes to a TAFKAL80ETC concert", Quality = 10, SellIn = 15 };
+
+            var program = CreateProgram(item);
+            program.UpdateQuality();
+
+            Assert.That(item.Quality, Is.EqualTo(11));
+        }
+
+        [Test]
+        public void when_updating_concert_tickets_between_5_and_10_days_before_its_sellby_should_appreciate_two_quality()
+        {
+            var item = new Item { Name = "Backstage passes to a TAFKAL80ETC concert", Quality = 10, SellIn = 7 };
+
+            var program = CreateProgram(item);
+            program.UpdateQuality();
+
+            Assert.That(item.Quality, Is.EqualTo(12));
+        }
+
+        [Test]
+        public void when_updating_concert_tickets_between_0_and_5_days_before_its_sellby_should_appreciate_three_quality()
+        {
+            var item = new Item { Name = "Backstage passes to a TAFKAL80ETC concert", Quality = 10, SellIn = 2 };
+
+            var program = CreateProgram(item);
+            program.UpdateQuality();
+
+            Assert.That(item.Quality, Is.EqualTo(13));
+        }
+
+        [Test]
+        public void when_updating_concert_tickets_after_its_sellby_should_have_a_quality_of_0()
+        {
+            var item = new Item { Name = "Backstage passes to a TAFKAL80ETC concert", Quality = 10, SellIn = 0 };
+
+            var program = CreateProgram(item);
+            program.UpdateQuality();
+
+            Assert.That(item.Quality, Is.EqualTo(0));
+        }
+
+        [Test]
         public void when_updating_sulfuras_should_not_update_its_quality()
         {
             var item = new Item { Name = "Sulfuras, Hand of Ragnaros", Quality = 80, SellIn = 0 };

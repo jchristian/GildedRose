@@ -2,6 +2,6 @@ namespace GildedRose.Console
 {
     public interface IParseItems
     {
-        IUpdateMyself Parse(Item item);
+        IUpdateAnItem Parse(Item item);
     }
 }

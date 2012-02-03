@@ -1,6 +1,6 @@
 namespace GildedRose.Console.Items
 {
-    public class NormalItem : IUpdateMyself
+    public class NormalItem : IUpdateAnItem
     {
         protected Item _item;
 
