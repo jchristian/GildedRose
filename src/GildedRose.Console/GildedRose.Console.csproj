@@ -46,6 +46,7 @@
     <Compile Include="AnotherSetOfItems\Default.cs" />
     <Compile Include="AnotherSetOfItems\Depreciate.cs" />
     <Compile Include="AnotherSetOfItems\DoubleTheQualityChange.cs" />
+    <Compile Include="AnotherSetOfItems\ItemFactories.cs" />
     <Compile Include="AnotherSetOfItems\When.cs" />
     <Compile Include="AnotherSetOfItems\EqualTo.cs" />
     <Compile Include="AnotherSetOfItems\GenericRestriction.cs" />
@@ -68,12 +69,6 @@
     <Compile Include="ItemFactoryRegistry.cs" />
     <Compile Include="ItemNotFoundInRegistryException.cs" />
     <Compile Include="ItemParser.cs" />
-    <Compile Include="Items\AgedBrieItem.cs" />
-    <Compile Include="Items\BackstagePassesItem.cs" />
-    <Compile Include="Items\ConjuredItem.cs" />
-    <Compile Include="Items\ItemFactories.cs" />
-    <Compile Include="Items\NormalItem.cs" />
-    <Compile Include="Items\SulfurasItem.cs" />
     <Compile Include="IUpdateAnItem.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,5 +1,5 @@
 ﻿using GildedRose.Console;
-using GildedRose.Console.Items;
+using GildedRose.Console.AnotherSetOfItems;
 using NUnit.Framework;
 
 namespace GildedRose.Tests

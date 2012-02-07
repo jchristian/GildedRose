@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using GildedRose.Console.Items;
+using GildedRose.Console.AnotherSetOfItems;
 
 namespace GildedRose.Console
 {
